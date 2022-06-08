@@ -1,12 +1,7 @@
-
-
-
 export class BankApi {
-
   private static isApiAvailable(): boolean {
     return true
   }
-
 
   static sendMoney(fromAccountId: string, toAccountId: string, amount: number) {
     if (!this.isApiAvailable()) {
