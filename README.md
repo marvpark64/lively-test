@@ -7,10 +7,18 @@ Feel free to modify any existing code as you find useful, including existing ent
 
 For simplicity, account balances and transfer amounts are assumed to be integers.
 
-Only try to complete as many steps as you can do within one and a half hours. This is a new coding problem that we are
-calibrating with and you are not expected to spend longer than that.
+Only try to complete as many steps as you can do within 2 hours, completing all steps is intended to take longer than that.
 
-1. Implement Transfer.createTransfer. It should take a fromAccount, a toAccount, an amount, and optionally,
+useful docs: https://typeorm.io/
+
+this test uses the datamapper pattern: https://typeorm.io/active-record-data-mapper
+
+it also uses a sqlite database with `synchronize` set to true: https://typeorm.io/data-source-options#sqlite-data-source-options
+
+(migrations aren't required)
+
+
+1. Implement TransferManager.createTransfer. It should take a fromAccount, a toAccount, an amount, and optionally,
    a processImmediately flag. If processImmediately is true, BankApi.sendMoney should be called on transfer creation.
    Keep track of transfer state so that deferred transfers can be processed later. 
    
@@ -18,8 +26,8 @@ calibrating with and you are not expected to spend longer than that.
    Trying to send more money out of an account than the account has should throw an error.
    How and when to change account balances for pending transfers is left as a design decision.
 
-2. Implement Account.reconcileBalances. Check that an account's current balance is as expected given the initial balance
-   it was created with (passed in during Account.createAccount) and all transfers in and out. Output an error message 
+2. Implement AccountManager.reconcileBalances. Check that an account's current balance is as expected given the initial balance
+   it was created with (passed in during AccountManager.createAccount) and all transfers in and out. Output an error message 
    if the balance is incorrect, along with the expected and actual amounts. 
  
 3. Account for the possibility that a bank-api call fails. Handle error and state management in a way that makes sense 
