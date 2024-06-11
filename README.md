@@ -7,7 +7,7 @@ Feel free to modify any existing code as you find useful, including existing ent
 
 For simplicity, account balances and transfer amounts are assumed to be integers.
 
-Only try to complete as many steps as you can do within 2 hours, completing all steps is intended to take longer than that.
+Only try to complete as many steps as you can.
 
 useful docs: https://typeorm.io/
 
