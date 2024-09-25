@@ -1,21 +1,26 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { Account } from "../account/entity";
 
+export enum TransferState {
+  PENDING = "PENDING",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+}
+
 @Entity()
 export class Transfer {
   @PrimaryGeneratedColumn()
   id: number;
 
   @ManyToOne((type) => Account)
-  fromAccount: Account
+  fromAccount: Account;
 
   @ManyToOne((type) => Account)
-  toAccount: Account
+  toAccount: Account;
 
-  @Column('int')
+  @Column("int")
   amount: number;
 
-  @Column('text', {nullable: true})
-  state: any;
-
+  @Column("text", { default: TransferState.PENDING })
+  state: TransferState;
 }
