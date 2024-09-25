@@ -10,4 +10,7 @@ export class Account {
 
   @Column("int")
   availableBalance: number;
+
+  @Column("int")
+  initialBalance: number;
 }
